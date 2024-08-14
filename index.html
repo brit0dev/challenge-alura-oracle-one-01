@@ -4,10 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Decodificador de texto - Challenge Oracle ONE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="assets/css/style.css" />
+
     <script src="main.js" defer></script>
   </head>
-  <body>
+  <body class="body">
     <header class="header">
       <h1 class="page-title">Decodificador de texto - Challenge Oracle ONE</h1>
       <img
@@ -18,26 +25,35 @@
       />
     </header>
     <main class="main">
-      <textarea name="text-input" class="text-input"></textarea>
-      <p class="main__warning">
-        <i class="warning-icon"></i>Apenas letras minúsculas e sem acento.
+      <textarea
+        name="text-input"
+        placeholder="Digite seu texto"
+        class="text-input"
+      ></textarea>
+      <p class="main-warning">
+        <i class="main-warning__icon"></i>
+        <span class="main-warning__text">
+          Apenas letras minúsculas e sem acento.
+        </span>
       </p>
       <div class="main__buttons">
         <button class="button button--filled">Criptografar</button>
-        <button class="button">Descriptografar</button>
+        <button class="button button--non-filled">Descriptografar</button>
       </div>
     </main>
-    <aside class="sidebar">
+    <aside class="sidebar sidebar--with-message">
       <img
         src="assets/images/sidebar-image.png"
         class="sidebar__image"
         alt="Sidebar image"
       />
-      <div class="sidebar__text">
-        <p><strong>Nenhuma mensagem encontrada</strong></p>
+      <div class="sidebar-text">
+        <p class="sidebar-text__warning">
+          <strong>Nenhuma mensagem encontrada</strong>
+        </p>
         <p>Digite um texto que você deseja criptografar ou descriptografar.</p>
       </div>
-      <p class="sidebar__decrypted-message"></p>
+      <p class="sidebar__encrypted-message">teste teste</p>
       <button class="button">Copiar</button>
     </aside>
     <footer class="footer">

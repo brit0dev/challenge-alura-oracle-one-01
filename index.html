@@ -8,9 +8,40 @@
     <script src="main.js" defer></script>
   </head>
   <body>
-    <header></header>
-    <main></main>
-    <aside></aside>
-    <footer></footer>
+    <header class="header">
+      <h1 class="page-title">Decodificador de texto - Challenge Oracle ONE</h1>
+      <img
+        class="header__logo"
+        src="assets/images/logo.svg"
+        alt="Alura Logo"
+        title="Ir para a página do desafio"
+      />
+    </header>
+    <main class="main">
+      <textarea name="text-input" class="text-input"></textarea>
+      <p class="main__warning">
+        <i class="warning-icon"></i>Apenas letras minúsculas e sem acento.
+      </p>
+      <div class="main__buttons">
+        <button class="button button--filled">Criptografar</button>
+        <button class="button">Descriptografar</button>
+      </div>
+    </main>
+    <aside class="sidebar">
+      <img
+        src="assets/images/sidebar-image.png"
+        class="sidebar__image"
+        alt="Sidebar image"
+      />
+      <div class="sidebar__text">
+        <p><strong>Nenhuma mensagem encontrada</strong></p>
+        <p>Digite um texto que você deseja criptografar ou descriptografar.</p>
+      </div>
+      <p class="sidebar__decrypted-message"></p>
+      <button class="button">Copiar</button>
+    </aside>
+    <footer class="footer">
+      Desenvolvido por <a href="/">Matheus Brito</a>
+    </footer>
   </body>
 </html>

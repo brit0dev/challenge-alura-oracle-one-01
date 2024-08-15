@@ -1,10 +1,10 @@
 let encryptor = {
   substitutions: [
+    ['e', 'enter'],
     ['i', 'imes'],
     ['a', 'ai'],
-    ['o', 'ober'],
-    ['e', 'enter'],
     ['u', 'ufat'],
+    ['o', 'ober'],
   ],
 
   decrypt(text) {
@@ -15,7 +15,7 @@ let encryptor = {
     this.substitutions.map(([letter, keyword]) => {
       if (decrypt) [letter, keyword] = [keyword, letter];
 
-      text = text.replace(letter, keyword);
+      text = text.replaceAll(letter, keyword);
     });
 
     return text;

@@ -29,14 +29,13 @@
   display: grid;
   grid-template-columns:
     minmax(auto, 10rem) minmax(50%, 1fr) minmax(2rem, 5rem)
-    auto;
+    minmax(auto, 25rem);
   grid-template-rows: minmax(3rem, 10.5rem) minmax(16rem, 1fr) auto;
   grid-template-areas:
     'h h h s'
     '. m gap s'
     'f f gap .';
   grid-auto-flow: row;
-  /*column-gap: 4%;*/
   row-gap: 2rem;
 
   font-family: var(--body-font);
@@ -95,7 +94,7 @@
   color: var(--dark-blue-300);
 
   font-family: inherit;
-  font-size: 2.5rem;
+  font-size: 2rem;
 
   flex: 1;
 
@@ -198,12 +197,6 @@
   border-radius: 2rem 2rem 0 0;
 }
 
-@media screen and (max-width: 1600px) {
-  .text-input {
-    font-size: 2rem;
-  }
-}
-
 @media screen and (max-width: 1200px) {
   .text-input {
     font-size: 1.8rem;
@@ -246,9 +239,8 @@
 
 @media screen and (max-width: 600px) {
   .body {
-    grid-template-rows: 9rem 1fr 1fr auto;
-  }
-  .body {
+    grid-template-rows: 15vh 1fr 1fr auto;
+
     padding: 1rem;
     padding-bottom: 0;
   }
@@ -261,10 +253,17 @@
   }
 }
 
-@media screen and (max-height: 550px) {
-  .body {
-    grid-template-rows: 4rem 1fr 1fr auto;
+@media screen and (max-height: 650px) {
+  .sidebar__image {
+    width: 13rem;
   }
+
+  .sidebar--empty {
+    align-items: center;
+  }
+}
+
+@media screen and (max-height: 550px) {
   .text-input {
     font-size: 1.4rem;
     min-height: 7rem;
@@ -276,9 +275,6 @@
     padding-bottom: 0.5rem;
   }
 
-  .sidebar--empty {
-    align-items: center;
-  }
   .sidebar__encrypted-message {
     font-size: 1.4rem;
   }

@@ -122,6 +122,13 @@
   gap: 0.5rem;
 }
 
+.main-warning--invalid-animation .main-warning__text {
+  color: red;
+  animation: invalid-input-animation;
+  animation-duration: 0.25s;
+  animation-iteration-count: infinite;
+}
+
 .main-warning__icon {
   background-image: url('/assets/images/warning-icon.svg');
 
@@ -277,5 +284,25 @@
 
   .sidebar__encrypted-message {
     font-size: 1.4rem;
+  }
+}
+
+@keyframes invalid-input-animation {
+  0% {
+    transform: translate(0px, 0px);
+  }
+
+  25% {
+    transform: translate(-3px, 0px);
+  }
+
+  50% {
+    transform: translate(0px, 0px);
+  }
+  75% {
+    transform: translate(3px, 0px);
+  }
+  100% {
+    transform: translate(0px, 0px);
   }
 }

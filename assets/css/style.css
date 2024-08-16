@@ -27,13 +27,16 @@
   padding-bottom: 0;
 
   display: grid;
-  grid-template-columns: 10rem 1fr auto;
-  grid-template-rows: 1fr auto;
+  grid-template-columns:
+    minmax(auto, 10rem) minmax(50%, 1fr) minmax(2rem, 5rem)
+    auto;
+  grid-template-rows: minmax(3rem, 10.5rem) minmax(16rem, 1fr) auto;
   grid-template-areas:
-    'a b c'
-    'f f x';
+    'h h h s'
+    '. m gap s'
+    'f f gap .';
   grid-auto-flow: row;
-  column-gap: 5rem;
+  /*column-gap: 4%;*/
   row-gap: 2rem;
 
   font-family: var(--body-font);
@@ -68,13 +71,17 @@
 }
 
 .header {
+  grid-area: h;
+
   display: flex;
   align-items: start;
-  justify-content: center;
+  justify-content: start;
 }
 
 .main {
-  padding: 10.5rem 0 4.5rem;
+  padding: 0rem 0 2rem;
+
+  grid-area: m;
 
   display: flex;
   flex-direction: column;
@@ -131,10 +138,14 @@
 .sidebar {
   background-color: var(--light-bg);
 
-  width: 25em;
+  max-width: 25rem;
+  min-width: 23rem;
   padding: 2rem;
 
+  grid-area: s;
+
   display: flex;
+  flex-wrap: nowrap;
   flex-direction: column;
   justify-content: center;
   gap: 2em;
@@ -145,7 +156,12 @@
 
 .sidebar__encrypted-message {
   font-size: 1.5rem;
+  word-break: break-word;
+  hyphens: auto;
+
   flex: 1;
+
+  overflow-x: auto;
 }
 
 .sidebar--empty :is(.sidebar__encrypted-message, .button) {
@@ -180,4 +196,90 @@
   grid-area: f;
 
   border-radius: 2rem 2rem 0 0;
+}
+
+@media screen and (max-width: 1600px) {
+  .text-input {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .text-input {
+    font-size: 1.8rem;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .body {
+    grid-template-columns: minmax(20rem, 1fr);
+    grid-template-rows: 10rem 1fr 1fr auto;
+    grid-template-areas:
+      'h'
+      'm'
+      's'
+      'f';
+  }
+
+  .text-input {
+    min-height: 25rem;
+  }
+
+  .sidebar {
+    max-width: 100%;
+    min-width: 20rem;
+  }
+
+  .sidebar__image {
+    display: none;
+  }
+
+  .button {
+    max-width: 100%;
+  }
+
+  .footer {
+    max-width: 100%;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .body {
+    grid-template-rows: 9rem 1fr 1fr auto;
+  }
+  .body {
+    padding: 1rem;
+    padding-bottom: 0;
+  }
+
+  .text-input {
+    min-height: 20rem;
+  }
+  .main__buttons {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-height: 550px) {
+  .body {
+    grid-template-rows: 4rem 1fr 1fr auto;
+  }
+  .text-input {
+    font-size: 1.4rem;
+    min-height: 7rem;
+  }
+  .sidebar__image {
+    display: none;
+  }
+  .main {
+    padding-bottom: 0.5rem;
+  }
+
+  .sidebar--empty {
+    align-items: center;
+  }
+  .sidebar__encrypted-message {
+    font-size: 1.4rem;
+  }
 }
